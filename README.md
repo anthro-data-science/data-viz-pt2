@@ -16,7 +16,25 @@ Join our low-volume mailing list (must be signed into google) [here](https://gro
 
 ## Outline
 
+### Data visualization principles
 
+### Load Data
+- Create new project "ggplot practice 2"
+- Load starwars data
+
+### Demonstration 1: Area Plot
+
+
+### Demonstration 2: Violin Plot
+
+
+### Demonstration 3: Snake Plot
+
+
+### Demonstration 4: Forest Plot
+
+
+### Custom themes, annotations, and labels
 
 
 ## Setup instructions
