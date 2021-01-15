@@ -16,26 +16,40 @@ Join our low-volume mailing list (must be signed into google) [here](https://gro
 
 ## Outline
 
-### Data visualization principles
-
 ### Load Data
 - Create new project "ggplot practice 2"
 - Load starwars data
 
-### Demonstration 1: Area Plot
+### Demonstration 1: Ordered Bar Graph (Shane)
+- Custom theme
+- Re order 
 
+### Demonstration 2: Bin 2d (Shane)
+- Two discrete variables
+- Fill colors
 
-### Demonstration 2: Violin Plot
+### Demonstration 3: Contour Plot (Shane)
+- Fill gradients
+- Stat density 2d (call statistic versus geom)
 
+### Demonstration 4: Scatter Plot (Delaney)
+- Trend-line
+- Overlay points
 
-### Demonstration 3: Snake Plot
+### Demonstration 5: Violin Plot (Delaney)
+- View key distributions of interest
+- Optional to overlay points (jitter)
+- Reference line (geom_abline)
+- Typeface & size of axes titles/legend
 
+### Demonstration 6: Forest Plot (Monica)
+- Load storms data
+- View many different distributions
 
-### Demonstration 4: Forest Plot
-
-
-### Custom themes, annotations, and labels
-
+### Demonstration 7: Alluvial (Monica)
+- Edited legend (position, text, order of variables)
+- Background fill color, border
+- Saving for publication
 
 ## Setup instructions
 
