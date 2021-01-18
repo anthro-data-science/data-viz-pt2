@@ -57,6 +57,7 @@ allutab <- storms %>%
   mutate(name = paste(name, year, sep = "_")) %>% #storm names repeat, add year to each name
   group_by(name) %>% 
   slice_max(wind) %>% #storm status peaks at max wind speed
+  distinct() %>% #remove duplicate rows
   ungroup %>% 
   group_by(year, status) %>% 
   summarize(n()) #count frequency of peak storm types by year
@@ -75,7 +76,7 @@ alluplot +
   scale_fill_discrete(name="Peak Status",
                       breaks=c("tropical depression", "tropical storm", "hurricane"), #reorder
                       labels=c("Tropical depression", "Tropical storm", "Hurricane")) + 
-  theme(legend.position = c(0.85,0.85), legend.background = element_rect(fill = "white", linetype="solid", color="black"))
+  theme(legend.position = c(0.15,0.80), legend.background = element_rect(fill = "white", linetype="solid", color="black"))
 
 ##save plot as image
 ggsave("alluplot.png", plot=last_plot(), dpi=300, height=5, width=7, units="in")
