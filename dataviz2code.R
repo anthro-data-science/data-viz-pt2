@@ -118,27 +118,7 @@ starwars %>% ggplot( aes(mass, height )) +
     panel.grid = element_line(color="#001a4d")  # some custom colors
   )
 
-# Violin Plot (Delaney addition)
 
-library(na.tools)
-starwars <- na.rm(starwars)
-
-library(magrittr)
-
-violin<- starwars %>% ggplot(aes(gender,mass)) + 
-  geom_violin()
-
-violin +
-  scale_fill_manual(values = c("pink","darkolivegreen"))+
-  theme(axis.text.x = element_text(color="black",size=10)) +
-  theme(axis.text.y = element_text(color="black", size=10)) +
-  theme(axis.title.x = element_text(color="black", size=12, face="bold")) +
-  theme(axis.title.y = element_text(color="black", size=12, face="bold")) +
-  theme(legend.title = element_text(color="black", size=12, face="bold"))+
-  labs(x="Gender", y="Mass", fill="black")
-
-#violin plot with data points
-violin + geom_point(pch=21)
 
 
 
