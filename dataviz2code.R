@@ -90,6 +90,11 @@ hx <- starwars %>%
   ggplot( aes(height, mass)) + 
   geom_smooth(color='blue', alpha=0.2) + 
   theme_minimal() + 
+  labs (x="Height", y="Mass") +
+  theme(axis.text.x = element_text(color="black",size=10)) +
+  theme(axis.text.y = element_text(color="black", size=10)) +
+  theme(axis.title.x = element_text(color="black", size=12, face="bold")) +
+  theme(axis.title.y = element_text(color="black", size=12, face="bold")) +
   theme(panel.background = element_rect(color="black")); hx
 
 # overlay points
