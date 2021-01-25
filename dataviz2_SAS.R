@@ -10,15 +10,14 @@ data("starwars")
 # basic bar graph 
 starwars %>% 
     ggplot( aes( x=eye_color )) + 
-    geom_bar( fill='black' ) + 
-    theme_minimal() + 
-    coord_flip( )
+    geom_bar( fill='black' ) 
+    
 #ggsave(filename = "BasicBarGraph.png", height = 3, width = 4, dpi = 600)
 
 # basic bar graph 
 my_theme <- theme( 
-    panel.background = element_rect(color='black',
-                                    fill='white'), 
+    panel.background = element_rect(color='black', fill='white'),
+    panel.grid = element_line(color="gray90"),
     panel.grid.major.y = element_blank(), 
     panel.grid.minor.x = element_line(linetype=2)
 )
