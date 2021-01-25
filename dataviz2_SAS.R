@@ -1,8 +1,7 @@
-# Some ggplot2 graphs using Stars Wars data 
+#### Data Viz 2 -- Visualizing Trends with ggplot2 ####
 
 #install.packages('tidyverse')
 library(tidyverse)
-
 data("starwars")
 
 #### Ordered and themed bar graph ####
@@ -56,7 +55,7 @@ starwars %>%
     scale_fill_continuous(breaks = seq(0,10,2), low="#3b55ff", high="tomato")
 ##ggsave("NewColorsBin2D.png", height = 6, width = 8, dpi=600)
 
-#### Bin2d with Ordinal variables 
+#### Bin2d with Ordinal variables ####
 
 # create new variables 
 starwars$ord_mass <- with(starwars, 
@@ -84,7 +83,7 @@ starwars %>%
                binwidth = 1, color='white') 
 #ggsave("OrdinalBin2d.png", height = 3, width = 4, dpi=600)
 
-#### Use contours to visualize continuous variables with outliers ####
+#### Use contours to visualize continuous variables ####
 
 # simulate some data 
 set.seed(777)
@@ -130,7 +129,8 @@ starwars %>%
 
 
 # some aesthetic changes
-d %>% ggplot( aes(mass, height )) +
+starwars %>% 
+    ggplot( aes(mass, height )) +
     stat_density_2d(aes(fill = ..level..), geom = "polygon") + # fill mapped to density 
     theme_minimal() + 
     scale_x_continuous(breaks = seq(0,150,25)) + 
