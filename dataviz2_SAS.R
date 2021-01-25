@@ -14,7 +14,7 @@ starwars %>%
     
 #ggsave(filename = "BasicBarGraph.png", height = 3, width = 4, dpi = 600)
 
-# basic bar graph 
+# a custom theme 
 my_theme <- theme( 
     panel.background = element_rect(color='black', fill='white'),
     panel.grid = element_line(color="gray90"),
@@ -22,6 +22,7 @@ my_theme <- theme(
     panel.grid.minor.x = element_line(linetype=2)
 )
 
+# flip coordinates and add theme 
 starwars %>% 
     ggplot(aes( x=reorder(eye_color, 
                           eye_color, 
@@ -51,7 +52,7 @@ starwars %>%
     ggplot(aes(eye_color, skin_color)) + 
     geom_bin2d() +
     theme_minimal() + 
-    theme(axis.text.x=element_text(angle = -90, hjust = 0)) + 
+    theme(axis.text.x=element_text(angle = -90, hjust = 0)) +  # this adjust the axis label orientation
     scale_fill_continuous(breaks = seq(0,10,2), low="#3b55ff", high="tomato")
 ##ggsave("NewColorsBin2D.png", height = 6, width = 8, dpi=600)
 
@@ -84,16 +85,19 @@ starwars %>%
 #ggsave("OrdinalBin2d.png", height = 3, width = 4, dpi=600)
 
 #### Use contours to visualize continuous variables with outliers ####
+
+# simulate some data 
 set.seed(777)
 N <- 3000
 R <- 1.1
 x <- rnorm(N, 2, 2)
-y <- R*x*(1-x) + rnorm(N)
+y <- R*x*(1-x) + rnorm(N) # the logistic map equation with error
 
 d <- data.frame(x,y)
 dim(d)
 head(d)
 
+# compare the plots
 d %>% 
     ggplot( aes( x,y )) +
     geom_point() + 
