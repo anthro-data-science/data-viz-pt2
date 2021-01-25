@@ -35,8 +35,8 @@ hurrtab <- storms %>%
   filter(status=="hurricane" & year>2009) %>% 
   mutate(yr_name = paste(year, name, sep = "_")) %>% #storm names repeat, add year to each name
   group_by(yr_name) %>% 
-  summarize_each(funs(mean, min, max), wind) %>% #mean, minimum, and maximum wind speed for each hurricane
-  ungroup
+  summarize_at(vars(wind), #mean, minimum, and maximum wind speed for each hurricane
+               list(mean = mean, min = min, max = max)) %>% 
 
 hurrtab %>% 
   ggplot(aes(x=yr_name, y=mean, ymin=min, ymax=max)) +
@@ -60,9 +60,7 @@ allutab <- storms %>%
   distinct() %>% #remove duplicate rows
   ungroup %>% 
   group_by(year, status) %>% 
-  summarize(n()) #count frequency of peak storm types by year
-
-colnames(allutab)[3] <- "count" #rename variable "n()"
+  summarize(count = n()) #count frequency of peak storm types by year
 
 alluplot <- allutab %>% 
   ggplot(aes(x=year, y=count, stratum=status, alluvium=status)) +

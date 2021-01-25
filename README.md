@@ -39,7 +39,6 @@ Join our low-volume mailing list (must be signed into google) [here](https://gro
 ### Demonstration 5: Violin Plot (Delaney)
 - View key distributions of interest
 - Optional to overlay points (jitter)
-- Reference line (geom_abline)
 - Typeface & size of axes titles/legend
 
 ### Demonstration 6: Forest Plot (Monica)
