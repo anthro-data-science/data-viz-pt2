@@ -36,7 +36,7 @@ hurrtab <- storms %>%
   mutate(yr_name = paste(year, name, sep = "_")) %>% #storm names repeat, add year to each name
   group_by(yr_name) %>% 
   summarize_at(vars(wind), #mean, minimum, and maximum wind speed for each hurricane
-               list(mean = mean, min = min, max = max)) %>% 
+               list(mean = mean, min = min, max = max))
 
 hurrtab %>% 
   ggplot(aes(x=yr_name, y=mean, ymin=min, ymax=max)) +
